@@ -1,0 +1,6 @@
+1.在rtt中的drv_config.h合适的地方包含input_capture_config.h文件
+2.在board.h定义相应的宏开启使用
+3.注意cubemx生成相关的msp函数名字是xxx_Base_xxx还是xxx_IC_xxx
+如果是前者，就在drv_input_capture.c的stm32_timer_capture_init函数中先执行HAL_TIM_Base_Init再执行HAL_TIM_IC_Init，否则反之。
+4.其他注意事项可以看文件内的说明
+5.参考文章https://club.rt-thread.org/ask/article/798724ca63ab008c.html
